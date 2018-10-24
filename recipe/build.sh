@@ -4,6 +4,10 @@
 # xref: https://gitweb.gentoo.org/repo/gentoo.git/commit/dev-db/mysql-connector-c?id=035441b4c80a3d9b8e79f28a98523488d69f75bb
 sed -i -e 's/CLIENT_LIBS/CONFIG_CLIENT_LIBS/' scripts/CMakeLists.txt
 
+if [[ $target_platform =~ linux.* ]]; then
+  export LDFLAGS="$LDFLAGS -Wl,-rpath-link,$PREFIX/lib"
+fi
+
 mkdir build
 cd build
 
