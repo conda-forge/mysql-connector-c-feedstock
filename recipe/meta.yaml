@@ -21,6 +21,7 @@ source:
 
 build:
   number: 1001
+  skip: true  # [win and vc<14]
   run_exports:
     # https://abi-laboratory.pro/tracker/timeline/mysql-connector-c/
     # Scary symbol removal between patch versions
