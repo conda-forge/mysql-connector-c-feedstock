@@ -17,10 +17,11 @@ source:
     - 0001-Add-definition-for-lldiv_t.patch  # [win and vc<14]
     - 0001-CPPFLAGS-can-have-more-than-one-compiler-definition.patch
     - 0002-GCC-7-Fix-empty-string-comparison-error.patch
+    # Copied from https://gitweb.gentoo.org/repo/gentoo.git/tree/dev-db/mysql-connector-c/files/6.1.11-openssl-1.1.patch
     - 0003-Don-t-use-deprecated-API-with-openssl-1.1.patch  # [unix]
 
 build:
-  number: 1003
+  number: 1004
   skip: true  # [win and vc<14]
   run_exports:
     # https://abi-laboratory.pro/tracker/timeline/mysql-connector-c/

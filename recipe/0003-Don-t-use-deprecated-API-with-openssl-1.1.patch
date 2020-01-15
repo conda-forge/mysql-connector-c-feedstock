@@ -1,7 +1,7 @@
-From 13c24a9109e86c8daeccdfc184d42b18388bcf4a Mon Sep 17 00:00:00 2001
+From 7961393dd45e4ad1cdc7544b4bba2e98a5d2760c Mon Sep 17 00:00:00 2001
 From: eroen <eroen@occam.eroen.eu>
 Date: Fri, 20 Jan 2017 14:43:53 +0100
-Subject: [PATCH 3/3] Don't use deprecated API with openssl 1.1
+Subject: [PATCH] Don't use deprecated API with openssl 1.1
 
 If openssl 1.1.0 is built with `--api=1.1 disable-deprecated`, using
 deprecated APIs causes build errors.
@@ -9,10 +9,10 @@ deprecated APIs causes build errors.
 X-Gentoo-Bug: 606600
 X-Gentoo-Bug-URL: https://bugs.gentoo.org/show_bug.cgi?id=606600
 ---
- mysys_ssl/my_aes_openssl.cc | 54 ++++++++++++++++++++++++++-----------
- sql-common/client.c         | 16 +++++++++--
- vio/viossl.c                |  8 ++++++
- vio/viosslfactories.c       | 23 ++++++++++++++++
+ mysys_ssl/my_aes_openssl.cc | 54 ++++++++++++++++++++++++++++++++-------------
+ sql-common/client.c         | 16 ++++++++++++--
+ vio/viossl.c                |  8 +++++++
+ vio/viosslfactories.c       | 23 +++++++++++++++++++
  4 files changed, 84 insertions(+), 17 deletions(-)
 
 diff --git a/mysys_ssl/my_aes_openssl.cc b/mysys_ssl/my_aes_openssl.cc
@@ -188,16 +188,30 @@ index 5622cb7..94b0f09 100644
  #ifndef DBUG_OFF
  
  static void
-@@ -310,7 +316,9 @@ void vio_ssl_delete(Vio *vio)
+@@ -310,8 +316,10 @@ void vio_ssl_delete(Vio *vio)
    }
  
  #ifndef HAVE_YASSL
 +#if OPENSSL_VERSION_NUMBER < 0x10100000L
    ERR_remove_thread_state(0);
-+#endif
  #endif
++#endif
  
    vio_delete(vio);
+ }
+@@ -427,7 +427,12 @@
+       for (j = 0; j < n; j++)
+       {
+         SSL_COMP *c = sk_SSL_COMP_value(ssl_comp_methods, j);
++#if OPENSSL_VERSION_NUMBER < 0x10100000L
+         DBUG_PRINT("info", ("  %d: %s\n", c->id, c->name));
++#else  /* OPENSSL_VERSION_NUMBER < 0x10100000L */
++        DBUG_PRINT("info",
++                   ("  %d: %s\n", SSL_COMP_get_id(c), SSL_COMP_get0_name(c)));
++#endif /* OPENSSL_VERSION_NUMBER < 0x10100000L */
+       }
+   }
+ #endif
 diff --git a/vio/viosslfactories.c b/vio/viosslfactories.c
 index da5449a..87b30c3 100644
 --- a/vio/viosslfactories.c
@@ -229,8 +243,8 @@ index da5449a..87b30c3 100644
 +#else
 +    if (! DH_set0_pqg(dh,
 +              BN_bin2bn(dh2048_p,sizeof(dh2048_p),NULL),
-+              BN_bin2bn(dh2048_g,sizeof(dh2048_g),NULL),
-+              NULL))
++              NULL,
++              BN_bin2bn(dh2048_g,sizeof(dh2048_g),NULL)))
 +    {
 +#endif
        DH_free(dh);
@@ -282,5 +296,5 @@ index da5449a..87b30c3 100644
  }
  
 -- 
-2.18.0
+2.11.0
 
