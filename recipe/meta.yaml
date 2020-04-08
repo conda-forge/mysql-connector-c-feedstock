@@ -21,7 +21,7 @@ source:
     - 0003-Don-t-use-deprecated-API-with-openssl-1.1.patch  # [unix]
 
 build:
-  number: 1005
+  number: 1006
   skip: true  # [win and vc<14]
   run_exports:
     # https://abi-laboratory.pro/tracker/timeline/mysql-connector-c/
@@ -33,6 +33,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - cmake
+    - ninja       # [win]
     - make        # [unix]
   host:
     - openssl     # [not win]
