@@ -5,7 +5,7 @@ Home: https://dev.mysql.com/downloads/connector/c/
 
 Package license: LGPL
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: MySQL Connector/C, the C interface for communicating with MySQL servers.
 
@@ -18,7 +18,21 @@ Current build status
 ====================
 
 
-<table>
+<table><tr>
+    <td>Travis</td>
+    <td>
+      <a href="https://travis-ci.com/conda-forge/mysql-connector-c-feedstock">
+        <img alt="macOS" src="https://img.shields.io/travis/com/conda-forge/mysql-connector-c-feedstock/master.svg?label=macOS">
+      </a>
+    </td>
+  </tr><tr>
+    <td>Drone</td>
+    <td>
+      <a href="https://cloud.drone.io/conda-forge/mysql-connector-c-feedstock">
+        <img alt="linux" src="https://img.shields.io/drone/build/conda-forge/mysql-connector-c-feedstock/master.svg?label=Linux">
+      </a>
+    </td>
+  </tr>
     
   <tr>
     <td>Azure</td>
@@ -32,36 +46,44 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_target_platformlinux-64</td>
+              <td>linux_64_target_platformlinux-64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4041&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mysql-connector-c-feedstock?branchName=master&jobName=linux&configuration=linux_target_platformlinux-64" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mysql-connector-c-feedstock?branchName=master&jobName=linux&configuration=linux_64_target_platformlinux-64" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_target_platformosx-64</td>
+              <td>linux_aarch64_target_platformlinux-aarch64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4041&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mysql-connector-c-feedstock?branchName=master&jobName=osx&configuration=osx_target_platformosx-64" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mysql-connector-c-feedstock?branchName=master&jobName=linux&configuration=linux_aarch64_target_platformlinux-aarch64" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>win_c_compilervs2015cxx_compilervs2015target_platformwin-64vc14</td>
+              <td>linux_ppc64le_target_platformlinux-ppc64le</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4041&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mysql-connector-c-feedstock?branchName=master&jobName=win&configuration=win_c_compilervs2015cxx_compilervs2015target_platformwin-64vc14" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mysql-connector-c-feedstock?branchName=master&jobName=linux&configuration=linux_ppc64le_target_platformlinux-ppc64le" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_target_platformosx-64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4041&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mysql-connector-c-feedstock?branchName=master&jobName=osx&configuration=osx_64_target_platformosx-64" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_target_platformwin-64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=4041&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/mysql-connector-c-feedstock?branchName=master&jobName=win&configuration=win_64_target_platformwin-64" alt="variant">
                 </a>
               </td>
             </tr>
           </tbody>
         </table>
       </details>
-    </td>
-  </tr>
-  <tr>
-    <td>Linux_ppc64le</td>
-    <td>
-      <img src="https://img.shields.io/badge/ppc64le-disabled-lightgrey.svg" alt="ppc64le disabled">
     </td>
   </tr>
 </table>
