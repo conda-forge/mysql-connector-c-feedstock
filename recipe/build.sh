@@ -11,7 +11,7 @@ fi
 mkdir build
 cd build
 
-# Set INSTALL_DOCREADMEDIR_STANDALONE to a junk path to avoid installing the README into PREFIX
+# Set INSTALL_DOCREADMEDIR to a junk path to avoid installing the README into PREFIX
 cmake  -G"$CMAKE_GENERATOR" \
        -DWITH_SSL=system \
        -DCMAKE_BUILD_TYPE=Release \
@@ -19,7 +19,8 @@ cmake  -G"$CMAKE_GENERATOR" \
        -DCMAKE_INSTALL_PREFIX=$PREFIX \
        -DSHARED_LIB_PATCH_VERSION="0" \
        -DLIBMYSQL_OS_OUTPUT_NAME=mysqlclient \
-       -DINSTALL_DOCREADMEDIR_STANDALONE="${PWD}/junk" \
+       -DINSTALL_DOCREADMEDIR="${PWD}/junk" \
+       -DINSTALL_DOCDIR="${PWD}/junk" \
        ..
 
 make -j${CPU_COUNT} ${VERBOSE_AT}
