@@ -21,7 +21,7 @@ source:
     - 0003-Don-t-use-deprecated-API-with-openssl-1.1.patch  # [unix]
 
 build:
-  number: 1006
+  number: 1007
   skip: true  # [win and vc<14]
   run_exports:
     # https://abi-laboratory.pro/tracker/timeline/mysql-connector-c/
@@ -46,8 +46,7 @@ test:
 
 about:
   home: https://dev.mysql.com/downloads/connector/c/
-  license: LGPL
-  license_family: LGPL
+  license: GPL-2.0-only
   license_file: COPYING
   summary: 'MySQL Connector/C, the C interface for communicating with MySQL servers.'
 
@@ -58,4 +57,5 @@ about:
 
 extra:
   recipe-maintainers:
+    - chrisburr
     - druvus

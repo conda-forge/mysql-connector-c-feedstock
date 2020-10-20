@@ -3,9 +3,9 @@ About mysql-connector-c
 
 Home: https://dev.mysql.com/downloads/connector/c/
 
-Package license: LGPL
+Package license: GPL-2.0-only
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/mysql-connector-c-feedstock/blob/master/LICENSE.txt)
 
 Summary: MySQL Connector/C, the C interface for communicating with MySQL servers.
 
@@ -180,5 +180,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@chrisburr](https://github.com/chrisburr/)
 * [@druvus](https://github.com/druvus/)
 
