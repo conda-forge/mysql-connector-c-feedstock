@@ -21,7 +21,7 @@ source:
     - 0003-Don-t-use-deprecated-API-with-openssl-1.1.patch  # [unix]
 
 build:
-  number: 1007
+  number: 1008
   skip: true  # [win and vc<14]
   run_exports:
     # https://abi-laboratory.pro/tracker/timeline/mysql-connector-c/
