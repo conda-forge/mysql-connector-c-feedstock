@@ -1,0 +1,33 @@
+diff --git a/cmake/ssl.cmake b/cmake/ssl.cmake
+index 19ac9a6..4b52aa3 100644
+--- a/cmake/ssl.cmake
++++ b/cmake/ssl.cmake
+@@ -161,22 +161,20 @@ MACRO (MYSQL_CHECK_SSL)
+       LIST(REVERSE CMAKE_FIND_LIBRARY_SUFFIXES)
+     ENDIF()
+ 
+-    # Verify version number. Version information looks like:
+-    #   #define OPENSSL_VERSION_NUMBER 0x1000103fL
+-    # Encoded as MNNFFPPS: major minor fix patch status
+     FILE(STRINGS "${OPENSSL_INCLUDE_DIR}/openssl/opensslv.h"
+-      OPENSSL_VERSION_NUMBER
+-      REGEX "^#[ ]*define[\t ]+OPENSSL_VERSION_NUMBER[\t ]+0x[0-9].*"
++      OPENSSL_VERSION_MAJOR
++      REGEX "^#[ ]*define[\t ]+OPENSSL_VERSION_MAJOR[\t ]+[0-9].*"
+     )
+     STRING(REGEX REPLACE
+-      "^.*OPENSSL_VERSION_NUMBER[\t ]+0x([0-9]).*$" "\\1"
+-      OPENSSL_MAJOR_VERSION "${OPENSSL_VERSION_NUMBER}"
++      "^.*OPENSSL_VERSION_MAJOR[\t ]+([0-9]).*$" "\\1"
++      OPENSSL_MAJOR_VERSION "${OPENSSL_VERSION_MAJOR}"
+     )
+ 
+     IF(OPENSSL_INCLUDE_DIR AND
+        OPENSSL_LIBRARY   AND
+        CRYPTO_LIBRARY      AND
+-       OPENSSL_MAJOR_VERSION STREQUAL "1"
++       (OPENSSL_MAJOR_VERSION STREQUAL "1" OR
++        OPENSSL_MAJOR_VERSION STREQUAL "3")
+       )
+       SET(OPENSSL_FOUND TRUE)
+     ELSE()

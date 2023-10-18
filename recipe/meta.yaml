@@ -20,6 +20,7 @@ source:
     # Copied from https://gitweb.gentoo.org/repo/gentoo.git/tree/dev-db/mysql-connector-c/files/6.1.11-openssl-1.1.patch
     - patches/0004-Don-t-use-deprecated-API-with-openssl-1.1.patch  # [unix]
     - patches/0005-fix-conditional-ordering.patch
+    - patches/0006-allow-openssl-3.patch
 
 build:
   number: 1008
@@ -60,3 +61,4 @@ extra:
   recipe-maintainers:
     - chrisburr
     - druvus
+    - mfansler
