@@ -204,4 +204,5 @@ Feedstock Maintainers
 
 * [@chrisburr](https://github.com/chrisburr/)
 * [@druvus](https://github.com/druvus/)
+* [@mfansler](https://github.com/mfansler/)
 
