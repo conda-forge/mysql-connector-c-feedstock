@@ -1,9 +1,7 @@
 bot:
   automerge: true
-compiler_stack: comp7
 conda_forge_output_validation: true
-max_py_ver: '37'
-max_r_ver: '35'
+test: native_and_emulated
 provider:
   linux_aarch64: default
   linux_ppc64le: azure
