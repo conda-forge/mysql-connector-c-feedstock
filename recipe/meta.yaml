@@ -14,14 +14,16 @@ source:
   url: https://dev.mysql.com/get/Downloads/Connector-C/{{ name|lower }}-{{ version }}-src.zip  # [win]
   sha256: {{ sha256 }}
   patches:
-    - 0001-Add-definition-for-lldiv_t.patch  # [win and vc<14]
-    - 0001-CPPFLAGS-can-have-more-than-one-compiler-definition.patch
-    - 0002-GCC-7-Fix-empty-string-comparison-error.patch
+    - patches/0001-Add-definition-for-lldiv_t.patch  # [win and vc<14]
+    - patches/0002-CPPFLAGS-can-have-more-than-one-compiler-definition.patch
+    - patches/0003-GCC-7-Fix-empty-string-comparison-error.patch
     # Copied from https://gitweb.gentoo.org/repo/gentoo.git/tree/dev-db/mysql-connector-c/files/6.1.11-openssl-1.1.patch
-    - 0003-Don-t-use-deprecated-API-with-openssl-1.1.patch  # [unix]
+    - patches/0004-Don-t-use-deprecated-API-with-openssl-1.1.patch  # [unix]
+    - patches/0005-fix-conditional-ordering.patch
+    - patches/0006-allow-openssl-3.patch
 
 build:
-  number: 1007
+  number: 1008
   skip: true  # [win and vc<14]
   run_exports:
     # https://abi-laboratory.pro/tracker/timeline/mysql-connector-c/
@@ -59,3 +61,4 @@ extra:
   recipe-maintainers:
     - chrisburr
     - druvus
+    - mfansler

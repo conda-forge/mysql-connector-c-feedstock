@@ -9,7 +9,7 @@ if [[ $target_platform =~ linux.* ]]; then
 fi
 
 mkdir build
-cd build
+pushd build
 
 # Set INSTALL_DOCREADMEDIR to a junk path to avoid installing the README into PREFIX
 cmake  -G"$CMAKE_GENERATOR" \
@@ -25,3 +25,5 @@ cmake  -G"$CMAKE_GENERATOR" \
 
 make -j${CPU_COUNT} ${VERBOSE_AT}
 make install
+
+popd
