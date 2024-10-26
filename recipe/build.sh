@@ -12,7 +12,7 @@ mkdir build
 pushd build
 
 # Set INSTALL_DOCREADMEDIR to a junk path to avoid installing the README into PREFIX
-cmake  -G"$CMAKE_GENERATOR" \
+cmake ${CMAKE_ARGS}  -G"$CMAKE_GENERATOR" \
        -DWITH_SSL=system \
        -DCMAKE_BUILD_TYPE=Release \
        -DCMAKE_PREFIX_PATH=$PREFIX \

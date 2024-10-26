@@ -1,13 +1,15 @@
 bot:
   automerge: true
+build_platform:
+  osx_arm64: osx_64
+conda_build:
+  pkg_format: '2'
 conda_forge_output_validation: true
-test: native_and_emulated
+github:
+  branch_name: main
+  tooling_branch_name: main
 provider:
   linux_aarch64: default
   linux_ppc64le: azure
   win: azure
-github:
-  branch_name: main
-  tooling_branch_name: main
-conda_build:
-  pkg_format: '2'
+test: native_and_emulated
