@@ -35,7 +35,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
     - {{ compiler('cxx') }}
-    - cmake
+    - cmake <4
     - ninja       # [win]
     - make        # [unix]
   host:
