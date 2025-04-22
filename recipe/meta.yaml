@@ -23,7 +23,7 @@ source:
     - patches/0006-allow-openssl-3.patch
 
 build:
-  number: 1008
+  number: 1009
   skip: true  # [win and vc<14]
   run_exports:
     # https://abi-laboratory.pro/tracker/timeline/mysql-connector-c/
