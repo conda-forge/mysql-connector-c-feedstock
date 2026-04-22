@@ -10,8 +10,8 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz  # [not win]
   fn: {{ name }}-{{ version }}.zip  # [win]
-  url: https://dev.mysql.com/get/Downloads/Connector-C/{{ name|lower }}-{{ version }}-src.tar.gz  # [not win]
-  url: https://dev.mysql.com/get/Downloads/Connector-C/{{ name|lower }}-{{ version }}-src.zip  # [win]
+  url: https://downloads.mysql.com/archives/get/p/19/file/{{ name|lower }}-{{ version }}-src.tar.gz  # [not win]
+  url: https://downloads.mysql.com/archives/get/p/19/file/{{ name|lower }}-{{ version }}-src.zip     # [win]
   sha256: {{ sha256 }}
   patches:
     - patches/0001-Add-definition-for-lldiv_t.patch  # [win and vc<14]
@@ -23,7 +23,7 @@ source:
     - patches/0006-allow-openssl-3.patch
 
 build:
-  number: 1008
+  number: 1009
   skip: true  # [win and vc<14]
   run_exports:
     # https://abi-laboratory.pro/tracker/timeline/mysql-connector-c/
@@ -33,8 +33,9 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib('c') }}
     - {{ compiler('cxx') }}
-    - cmake
+    - cmake <4
     - ninja       # [win]
     - make        # [unix]
   host:
